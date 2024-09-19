@@ -18,9 +18,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="Register.jsp">Registrarse</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Catalogo.jsp">Catálogo</a>
-                </li>
             </ul>
         </div>
     </nav>
@@ -28,7 +25,7 @@
     <div class="container text-center mt-5">
         <h1>¡Bienvenido a TechStore!</h1>
         <p>Compra los mejores productos electrónicos en línea.</p>
-        <a href="Catalogo.jsp" class="btn btn-primary">Ver Catálogo</a>
+        <p>Te invitamos a registrarte para poder ver nuestro catalogo.</p>
     </div>
 </body>
 </html>

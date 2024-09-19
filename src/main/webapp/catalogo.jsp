@@ -10,6 +10,19 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">TechStore</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="perfil.jsp">Gestion Cuenta</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.jsp">Salir</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <div class="container mt-5">
         <h2>Catálogo de Productos</h2>
         <form action="CatalogoServlet" method="get">

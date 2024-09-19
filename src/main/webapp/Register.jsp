@@ -23,7 +23,9 @@
                 <label for="password">Contraseña:</label>
                 <input type="password" class="form-control" id="password" name="password" required>
             </div>
-            <button type="submit" class="btn btn-primary">Registrarse</button>
+            <button type="submit" href="login.jsp" class="btn btn-primary">Registrarse</button>
+            
+           
         </form>
     </div>
 </body>
