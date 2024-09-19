@@ -1,66 +1,73 @@
 package co.edu.unbosque.model;
 
-import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
-public class Cliente implements Serializable {
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	private String nombre;
+public class Cliente {
+    private int id;
+    private String nombre;
     private String email;
-    private String password;
     private String membresia;
-    private List<Producto> historialCompras;
 
-    public Cliente(String nombre, String email, String password, String membresia, List<Producto> historialCompras) {
-        this.setNombre(nombre);
-        this.setEmail(email);
-        this.setPassword(password);
-        this.setMembresia(membresia);
-        this.setHistorialCompras(historialCompras);
+    // Constructor
+    public Cliente(int id, String nombre, String email, String membresia) {
+        this.id = id;
+        this.nombre = nombre;
+        this.email = email;
+        this.membresia = membresia;
     }
-    // Getters y setters
 
-	public String getNombre() {
-		return nombre;
+    public Cliente(String nombre2, String email2, String password, String string, ArrayList arrayList) {
+		// TODO Auto-generated constructor stub
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	// Getters
+    public int getId() {
+        return id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getMembresia() {
+        return membresia;
+    }
+
+    // Setters
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setMembresia(String membresia) {
+        this.membresia = membresia;
+    }
+
+	public List<Producto> getHistorialCompras() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
+	public Object getPassword() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
+		// TODO Auto-generated method stub
+		
 	}
-
-	public String getMembresia() {
-		return membresia;
-	}
-
-	public void setMembresia(String membresia) {
-		this.membresia = membresia;
-	}
-
-	public List<Producto> getHistorialCompras() {
-		return historialCompras;
-	}
-
-	public void setHistorialCompras(List<Producto> historialCompras) {
-		this.historialCompras = historialCompras;
-	}
-    
 }
+

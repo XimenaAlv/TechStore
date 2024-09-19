@@ -22,7 +22,13 @@ public class Producto implements Serializable {
         this.categoria = categoria;
         this.disponibilidad = disponibilidad;
     }
-    public String getImagen() {
+    public Producto(String nombre2, double precio2, int disponibilidad2, String imagen2) {
+		// TODO Auto-generated constructor stub
+	}
+	public Producto(int idProducto, String nombre2, String descripcion, double precio2) {
+		// TODO Auto-generated constructor stub
+	}
+	public String getImagen() {
         String imagen = null;
 		return imagen;
     }
@@ -82,4 +88,9 @@ public class Producto implements Serializable {
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
 	}
+	public String getDescripcion() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

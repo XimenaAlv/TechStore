@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="co.edu.unbosque.model.Cliente" %>
+<%@ page import="co.edu.unbosque.model.Cliente, java.util.ArrayList, java.util.List"%>
 <%@ page import="co.edu.unbosque.model.Producto" %>
 <%@ page session="true" %>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,6 +16,13 @@
 
 <%
     Cliente cliente = (Cliente) session.getAttribute("cliente");
+
+	List<Producto> historialCompras = new ArrayList<>();
+	
+	historialCompras.add( new Producto(001,"Televisor LG 51", 600000, "Televisores",1));
+
+	cliente = new Cliente ("Ximena", "alvarez@gmail.com", "123456789", "Oro", historialCompras);
+
     if (cliente == null) {
         response.sendRedirect("login.jsp");
         return;

@@ -19,7 +19,7 @@
                 <label for="password">Contraseña:</label>
                 <input type="password" class="form-control" id="password" name="password" required>
             </div>
-            <button type="submit" href="Catalogo.jsp" class="btn btn-primary">Iniciar Sesión</button>
+            <button type="submit" href="catalogo.jsp" class="btn btn-primary">Iniciar Sesión</button>
             
         </form>
     </div>

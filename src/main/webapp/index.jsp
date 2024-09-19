@@ -13,7 +13,7 @@
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="Login.jsp">Iniciar Sesión</a>
+                    <a class="nav-link" href="login.jsp">Iniciar Sesión</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="Register.jsp">Registrarse</a>

@@ -1,44 +1,45 @@
 package co.edu.unbosque.controller;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.FileInputStream;
 import java.util.List;
-
+import java.util.ArrayList;
 import co.edu.unbosque.model.Producto;
 
-@WebServlet("/ProductoServlet")
 public class ProductoServlet extends HttpServlet {
-	    private static final long serialVersionUID = 1L; 
-    @SuppressWarnings("unchecked")
-	@Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
 
-        // Leer los productos desde el archivo binario
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("productos.bin"))) {
-            List<Producto> productos = (List<Producto>) ois.readObject();
-            Producto productoSeleccionado = null;
+    private List<Producto> productos;
 
-            // Buscar el producto por ID
-            for (Producto producto : productos) {
-                if (producto.getId() == id) {
-                    productoSeleccionado = producto;
-                    break;
-                }
-            }
+    @Override
+    public void init() throws ServletException {
+        productos = new ArrayList<>();
+        getServletContext().setAttribute("productos", productos); // Guardar en contexto
+    }
 
-            // Enviar los detalles del producto a la página JSP
-            request.setAttribute("producto", productoSeleccionado);
-            request.getRequestDispatcher("ProductoDetalle.jsp").forward(request, response);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action");
+
+        if ("add".equals(action)) {
+            String nombre = request.getParameter("nombre");
+            double precio = Double.parseDouble(request.getParameter("precio"));
+            int disponibilidad = Integer.parseInt(request.getParameter("disponibilidad"));
+            String imagen = request.getParameter("imagen");
+
+            Producto nuevoProducto = new Producto(nombre, precio, disponibilidad, imagen);
+            productos.add(nuevoProducto);
+            request.getServletContext().setAttribute("productos", productos);
+
+        } else if ("delete".equals(action)) {
+            int id = Integer.parseInt(request.getParameter("id"));
+            productos.removeIf(p -> p.getId() == id);
+            request.getServletContext().setAttribute("productos", productos);
         }
+
+        response.sendRedirect("admin.jsp");
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doPost(request, response);
     }
 }
